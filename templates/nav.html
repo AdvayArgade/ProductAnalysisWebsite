@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+{% block links %}{% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.plot.ly/plotly.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        {% block style %}{% endblock %}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Amateur Analysts</h1>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">MamaEarth Product Analysis</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('showAnalysis') }}">Product Analysis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('show_lda') }}">LDA visualization</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>
+        {% block content %}{% endblock %}
+<section class="categories downloads">
+    <h3>Downloads</h3>
+    <ul>
+        <li>
+            <a href="http://127.0.0.1:5000/download/rating_counts_final.csv">Product Ratings</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/download/Sentiment.csv">Sentiments</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/download/price_sentiment.csv">Price sentiment</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/download/quality_sentiment.csv">Quality sentiment</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/download/service_sentiment.csv">Service sentiment</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/download/effect_sentiment.csv">Effect sentiment</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/download/Final_Keywords_Summarization.csv">Segment-wise summary per product</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1:5000/download/Final_Product_Summary.csv">Overall summary per product</a>
+        </li>
+    </ul>
+</section>
+</body>
+<footer class="footer">
+        <p>&copy; 2024 Amateur Analysts. All rights reserved.</p>
+</footer>
+<script src = "{{ url_for('static', filename='nav.js') }}" async></script>
+</html>
